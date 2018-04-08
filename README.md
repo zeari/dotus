@@ -1,5 +1,5 @@
 # dotus
-A ruby Kubernetes api reader\persistor
+A Kubernetes api reader\persistor
 
 Reads the objects off of an kubernetes api endpoint and saves snapshots of all objects over time. This isnt really better than a kibana+elastic search setup but its hassle free and saves the data locally.
 
@@ -72,9 +72,9 @@ Because:
 * it already exists on most machines and its pretty flexible.
 * it compresses the text changes nicely (you can test this out with https://github.com/github/git-sizer).
 
-### SSL
+## Future work
 
-Supported by kubeclient so if theres interest, itll be added as an option in `config.yaml`.
-
-
+* SSL: is supported by kubeclient so if theres interest, itll be added as an option in `config.yaml`.
+* Openshift: This can also work with openshift but currently doesnt get openshift specific objects (routes, projects...)
+* Other cluster types: the concept is generic so getting other clusers to work with this would just require reading from other client types(amazon, vmware...)
 
