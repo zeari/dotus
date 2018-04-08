@@ -1,7 +1,7 @@
 # dotus
 A ruby Kubernetes api reader\persistor
 
-Reads the objects off of an kubernetes api endpoint and saves snapshots of all objects over time. This isnt really better than a kibana+elastic search setup but its hassle free and saves api reads locally.
+Reads the objects off of an kubernetes api endpoint and saves snapshots of all objects over time. This isnt really better than a kibana+elastic search setup but its hassle free and saves the data locally.
 
 ## Setup
 clone this repository and run bundle install.
@@ -32,7 +32,8 @@ config:
 ```ruby dotus.rb```
 
 
-```you@machine /home/dotus$> ruby dotus.rb 
+```
+you@machine /home/dotus$ ruby dotus.rb 
 getting pods(16)
 getting secrets- cant get secrets: secrets is forbidden: User "system:serviceaccount:management-infra:management-admin" cannot list secrets at the cluster scope: User "system:serviceaccount:management-infra:management-admin" cannot list all secrets in the cluster
 getting services(20)
@@ -49,14 +50,13 @@ sleeping until 2018-04-08 14:33:09 +0300
 ...
 ```
 
-## UI\API
+## UI\API (alpha)
 Small sinatra based web UI thats shows changes(diffs) over time.
 
 ```ruby rest.rb```
 
 Access at http://localhost:4567/view_obj_history.html?path=pods/prometheus-0 and it should look something like this:
 ![UI screenshot](/ui_screenshot.png)
-
 
 
 ## Technical Overview
@@ -69,4 +69,10 @@ each object is saved as json in its path such as: `pods/mypod1` or `services/mys
 Because:
 * it already exists on most machines and its pretty flexible.
 * it compresses the text changes nicely (you can test this out with https://github.com/github/git-sizer).
+
+### SSL
+
+Supported by kubeclient so if theres interest, itll be added as an option in `config.yaml`.
+
+
 
