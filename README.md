@@ -54,12 +54,12 @@ sleeping until 2018-04-08 14:33:09 +0300
 Access the api with appropriate `path`: `GET localhost:4567/history?path=pods/prometheus-0`
 
 Theres also a small sinatra based web UI thats shows changes(diffs) over time.
-
 run with: ```ruby rest.rb```
 
 Access at http://localhost:4567/view_obj_history.html?path=pods/prometheus-0 and it should look something like this:
 ![UI screenshot](/ui_screenshot.png)
 
+you can also use any git UI you like such as gitk. Just point it to the directory you set in `config.yaml`.
 
 ## Technical Overview
 
