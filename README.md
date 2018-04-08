@@ -14,7 +14,9 @@ bundle install
 
 
 ## Config
-Edit config.yaml in your preferred editor
+Edit config.yaml in your preferred editor.
+Youll have to get a token from your kubernertes instance. More info on how to do this in the kubernetes docs.
+
 
 ```Yaml
 config:
@@ -48,9 +50,23 @@ sleeping until 2018-04-08 14:33:09 +0300
 ```
 
 ## UI\API
-Small sinatra based web UI
+Small sinatra based web UI thats shows changes(diffs) over time.
 
 ```ruby rest.rb```
 
-Access at localhost:4567. Should look something like this:
+Access at http://localhost:4567/view_obj_history.html?path=pods/prometheus-0 and it should look something like this:
 ![UI screenshot](/ui_screenshot.png)
+
+
+
+## Technical Overview
+
+Accessing kubernetes api with https://github.com/abonas/kubeclient
+each object is saved as json in its path such as: `pods/mypod1` or `services/myservice` in a git repo.
+
+### why git? 
+
+Because:
+* it already exists on most machines and its pretty flexible.
+* it compresses the text changes nicely (you can test this out with https://github.com/github/git-sizer).
+
