@@ -1,0 +1,10 @@
+source 'https://rubygems.org'
+
+gem 'kubeclient'
+gem 'openshift_client'
+gem 'git'
+gem 'json'
+gem 'sinatra'
+gem 'sinatra-contrib'
+gem 'byebug'
+gem 'sinatra-cross_origin'
