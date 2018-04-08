@@ -51,6 +51,7 @@ sleeping until 2018-04-08 14:33:09 +0300
 ```
 
 ## UI\API (alpha)
+Access the api with appropriate path: `GET localhost:4567/history?path=pods/prometheus-0`
 Small sinatra based web UI thats shows changes(diffs) over time.
 
 ```ruby rest.rb```
